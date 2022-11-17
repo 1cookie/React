@@ -22,4 +22,4 @@ export default MyComponent;
 
 ## Usage
 
-    npm install && npm run
+    npm install && npm start
