@@ -13,22 +13,29 @@ class UserFinder extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filteredUsers: DUMMY_USERS,
+      filteredUsers: [],
       searchTerm: "",
     };
   }
+  // only runs once - on component load
+  componentDidMount() {
+    // send HTTP request to retreive data say...
+    this.setState({ filteredUsers: DUMMY_USERS });
+  }
+
   // Alternative to useEffect; found in functional components
   componentDidUpdate(prevProps, prevState) {
-    if(prevState.searchTerm !== this.state.searchTerm){
+    if (prevState.searchTerm !== this.state.searchTerm) {
       this.setState({
-        filteredUsers: DUMMY_USERS.filter(
-          (user) => user.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+        filteredUsers: DUMMY_USERS.filter((user) =>
+          user.name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
+        ),
       });
     }
   }
 
   searchChangeHandler = (event) => {
-    this.setState({searchTerm: event.target.value});
+    this.setState({ searchTerm: event.target.value });
   };
 
   render() {
@@ -68,3 +75,4 @@ class UserFinder extends Component {
 // };
 
 export default UserFinder;
+

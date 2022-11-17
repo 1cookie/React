@@ -4,7 +4,6 @@ import UserFinder from './UserFinder';
 
 import classes from './Users.module.css';
 
-
 class Users extends Component {
   
   constructor(){
