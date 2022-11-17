@@ -19,3 +19,7 @@ function MyComponent = (props) => {
 
 export default MyComponent;
 ```
+
+## Usage
+
+    npm install && npm run
